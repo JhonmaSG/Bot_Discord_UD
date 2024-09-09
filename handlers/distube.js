@@ -1,7 +1,9 @@
 const {distube} = require('distube');
 const {SpotifyPlugin} = require('@distube/spotify');
 const {SoundCloudPlugin} = require('@distube/soundcloud');
-module.exports = (client) => {
+const { Embed } = require('discord.js');
+module.exports = (client, Discord) => {
+    console.log('Modulo de MUSICA Cargado!'.red);
     client.distube = new distube(client, {
         emitNewSongOnly: false, //permite todo tipo de songs
         leaveOnEmpty: true, //si la cola esta vacia, salir
@@ -27,5 +29,34 @@ module.exports = (client) => {
             }),
             new SoundCloudPlugin()
         ]
+    });
+
+    // Eventos
+    // Escuchamos los eventos de DisTube
+
+    client.distube.on("playSong",(queue, song) => {
+        queue.textChannel.send({
+            embeds: [new Discord.MessageEmbed()
+                .setTitle(`💨 Reproduciendo \`${song.name}\` - \`${song.formattedDuration}\``)
+                .setThumbnail(song.thumbnail)
+                .setURL(song.url)
+                .setColor("#5773FC")
+                .setFooter({text: `Añadida por ${song.user.tag}`, iconURL: song.user.displayAvatarURL({dynamic: true})})
+            ]
+        })
+    })
+
+    //cola visualizar songs
+
+    client.distube.on("addSong",(queue, song) => {
+        queue.textChannel.send({
+            embeds: [new Discord.MessageEmbed()
+                .setTitle(`✅ Añadido \`${song.name}\` - \`${song.formattedDuration}\``)
+                .setThumbnail(song.thumbnail)
+                .setURL(song.url)
+                .setColor("#5773FC")
+                .setFooter({text: `Añadida por ${song.user.tag}`, iconURL: song.user.displayAvatarURL({dynamic: true})})
+            ]
+        })
     })
 };
