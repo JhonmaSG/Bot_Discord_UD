@@ -30,4 +30,14 @@ client.on(Events.MessageCreate, async (message) => {
     }
 });
 
+function requirehandlers(){
+    ["command","events","distube"].forEach(handler => {
+        try{
+            
+        } catch(error){
+
+        }
+    })
+}
+
 client.login(process.env.TOKEN_DC);
