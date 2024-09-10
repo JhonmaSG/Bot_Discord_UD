@@ -1,5 +1,12 @@
 # Local env file with credentials
 .env
 
-# Dependency directory
-node_modules
+# Dependencias de node
+node_modules/
+
+# Ignorar la carpeta config y todo su contenido
+config/
+
+# Alternativamente, ignorar solo el archivo config.json dentro de la carpeta config
+config/config.json
+
