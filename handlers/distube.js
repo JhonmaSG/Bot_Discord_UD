@@ -1,16 +1,16 @@
-const {distube} = require('distube');
+const {DisTube} = require('distube');
 const {SpotifyPlugin} = require('@distube/spotify');
 const {SoundCloudPlugin} = require('@distube/soundcloud');
 const { Embed } = require('discord.js');
 module.exports = (client, Discord) => {
     console.log('Modulo de MUSICA Cargado!'.red);
-    client.distube = new distube(client, {
+    client.distube = new DisTube(client, {
         emitNewSongOnly: false, //permite todo tipo de songs
         leaveOnEmpty: true, //si la cola esta vacia, salir
-        leaveOnfinish: true, //si no mas song por reproducir, salir
+        leaveOnFinish: true, //si no mas song por reproducir, salir
         leaveOnStop: true, //si el bot reproduce una cancion con error, salir
         savePreviusSong: true,
-        emitAddSongWhenCreatingQueue: false, //Event new song
+        emitAddSongWhenCreatingQueue: false, //Event nueva song
         searchSongs: 0, //elegir cancion por numeración 0: desactivado - 1: activado
         nsfw: false, //Permite reproducir songs +18
         emptyCooldown: 25, //time en seconds en irse de un canal
