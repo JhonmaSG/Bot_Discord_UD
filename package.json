@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "name": "botdiscord_music_ud",
   "version": "1.0.0",
@@ -30,21 +29,3 @@
   },
   "description": ""
 }
-=======
-{
-  "name": "botdiscord_music_ud",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "discord.js": "^14.16.1",
-    "dotenv": "^16.4.5"
-  },
-  "description": ""
-}
->>>>>>> 99359fa1c7651f8cdd2954a036a6eec0f3d54cf2
